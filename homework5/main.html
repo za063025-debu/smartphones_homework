@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Calculator Operations</title>
+
+    <style>
+        body {
+
+            font-family: Arial;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        h1 {
+
+            color: #333;
+        }
+
+        .numberBox {
+
+            width: 90px;
+            height: 35px;
+            margin: 8px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .section {
+
+            margin-top: 20px;
+        }
+
+        .answer {
+
+            display: inline-block;
+            width: 140px;
+            height: 35px;
+            border: 2px solid #444;
+            background-color: white;
+            line-height: 35px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        button {
+
+            width: 110px;
+            height: 40px;
+            background-color: #222;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+
+            background-color: #555;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Math Operations</h1>
+
+    <!-- Inputs -->
+
+    <input type="number" id="firstNum" class="numberBox" placeholder="First">
+
+    <input type="number" id="secondNum" class="numberBox" placeholder="Second">
+
+    <input type="number" id="thirdNum" class="numberBox" placeholder="Third">
+
+    <!-- SUM -->
+
+    <div class="section">
+
+        <button onclick="sumNumbers()">SUM</button>
+
+        <div id="sumOutput" class="answer"></div>
+
+    </div>
+
+    <!-- PRODUCT -->
+
+    <div class="section">
+
+        <button onclick="productNumbers()">PRODUCT</button>
+
+        <div id="productOutput" class="answer"></div>
+
+    </div>
+
+    <!-- LARGEST -->
+
+    <div class="section">
+
+        <button onclick="largestNumber()">LARGEST</button>
+
+        <div id="largestOutput" class="answer"></div>
+
+    </div>
+
+    <!-- MEAN -->
+
+    <div class="section">
+
+        <button onclick="meanNumbers()">MEAN</button>
+
+        <div id="meanOutput" class="answer"></div>
+
+    </div>
+
+    <script>
+
+        function getValues() {
+
+            let x = Number(document.getElementById("firstNum").value);
+            let y = Number(document.getElementById("secondNum").value);
+            let z = Number(document.getElementById("thirdNum").value);
+
+            return [x, y, z];
+        }
+
+        // SUM
+
+        function sumNumbers() {
+
+            let values = getValues();
+
+            let total = values[0] + values[1] + values[2];
+
+            document.getElementById("sumOutput").innerHTML = total;
+        }
+
+        // PRODUCT
+
+        function productNumbers() {
+
+            let values = getValues();
+
+            let total = values[0] * values[1] * values[2];
+
+            document.getElementById("productOutput").innerHTML = total;
+        }
+
+        // LARGEST
+
+        function largestNumber() {
+
+            let values = getValues();
+
+            let biggest = Math.max(values[0], values[1], values[2]);
+
+            document.getElementById("largestOutput").innerHTML = biggest;
+        }
+
+        // MEAN
+
+        function meanNumbers() {
+
+            let values = getValues();
+
+            let avg = (values[0] + values[1] + values[2]) / 3;
+
+            document.getElementById("meanOutput").innerHTML = avg;
+        }
+
+    </script>
+
+</body>
+
+</html>
